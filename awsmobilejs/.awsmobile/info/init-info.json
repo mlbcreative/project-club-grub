@@ -1,0 +1,54 @@
+{
+	"projectPath": "/Users/Owner/DivotApp",
+	"mobileProjectID": "3dc83b23-047e-47fa-9d9f-da2cb83d4435",
+	"projectInfo": {
+		"ProjectName": "DivotApp",
+		"ProjectPath": "/Users/Owner/DivotApp",
+		"InitializationTime": "",
+		"LastConfigurationTime": "",
+		"LastNPMInstallTime": "",
+		"FrontendLastBuildTime": "",
+		"LastPublishTime": "",
+		"BackendLastSyncTime": "",
+		"BackendLastBuildTime": "",
+		"BackendLastPushTime": "",
+		"BackendLastPushSuccessful": false,
+		"BackendProjectID": "",
+		"BackendProjectName": "",
+		"BackendProjectConsoleUrl": "",
+		"BackendProjectCreationTime": "",
+		"BackendProjectLastUpdatedTime": "",
+		"Framework": "react-native"
+	},
+	"packageJson": {
+		"name": "DivotApp",
+		"version": "0.1.0",
+		"private": true,
+		"devDependencies": {
+			"react-native-scripts": "1.11.1",
+			"jest-expo": "25.0.0",
+			"react-test-renderer": "16.2.0"
+		},
+		"main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+		"scripts": {
+			"start": "react-native-scripts start",
+			"eject": "react-native-scripts eject",
+			"android": "react-native-scripts android",
+			"ios": "react-native-scripts ios",
+			"test": "node node_modules/jest/bin/jest.js"
+		},
+		"jest": {
+			"preset": "jest-expo"
+		},
+		"dependencies": {
+			"aws-amplify": "^0.2.9",
+			"aws-amplify-react-native": "^0.2.5",
+			"expo": "^25.0.0",
+			"react": "16.2.0",
+			"react-native": "0.52.0"
+		}
+	},
+	"framework": "react-native",
+	"initialStage": "clean-slate",
+	"strategy": "link"
+}

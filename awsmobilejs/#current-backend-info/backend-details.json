@@ -1,0 +1,100 @@
+{
+	"name": "DivotReactNative",
+	"projectId": "3dc83b23-047e-47fa-9d9f-da2cb83d4435",
+	"region": "us-east-1",
+	"state": "NORMAL",
+	"createdDate": "2018-03-12T19:59:03.622Z",
+	"lastUpdatedDate": "2018-03-12T20:35:11.010Z",
+	"consoleUrl": "https://console.aws.amazon.com/mobilehub/home#/3dc83b23-047e-47fa-9d9f-da2cb83d4435/build",
+	"resources": [
+		{
+			"type": "AWS::Pinpoint::AnalyticsApplication",
+			"name": "divotreactnative_MobileHub",
+			"arn": "2264021383a248e1869a50344d82d799",
+			"feature": "analytics",
+			"attributes": {
+				"lastUpdateRequestID": "d054649d-262f-11e8-9798-e5c594fcd959"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "divotreactnative_mobileanalytics_MOBILEHUB_1253509601",
+			"arn": null,
+			"feature": "analytics",
+			"attributes": {
+				"authType": "authenticated",
+				"lastUpdateRequestID": "dbcd4e16-2634-11e8-bb82-479c2c73f3db",
+				"role": "divotreactnative_auth_MOBILEHUB_1253509601"
+			}
+		},
+		{
+			"type": "AWS::Cognito::IdentityPool",
+			"name": "divotreactnative_MOBILEHUB_1253509601",
+			"arn": "us-east-1:e0b91e33-d45b-414e-a0c6-76068f7de6d1",
+			"feature": "user-signin",
+			"attributes": {
+				"lastUpdateRequestID": "dbcd4e16-2634-11e8-bb82-479c2c73f3db",
+				"poolid": "us-east-1:e0b91e33-d45b-414e-a0c6-76068f7de6d1",
+				"roleARNs": "arn:aws:iam::467207127713:role/divotreactnative_auth_MOBILEHUB_1253509601"
+			}
+		},
+		{
+			"type": "AWS::IAM::Role",
+			"name": "divotreactnative_smsverification_MOBILEHUB_1253509601",
+			"arn": "arn:aws:iam::467207127713:role/service-role/divotreactnative_smsverification_MOBILEHUB_1253509601",
+			"feature": "user-signin",
+			"attributes": {
+				"lastUpdateRequestID": "3307bcb5-2634-11e8-a5cf-83281952b9d0",
+				"user-pools-role-key": "user-pools-execution-role"
+			}
+		},
+		{
+			"type": "AWS::Cognito::UserPool",
+			"name": "divotreactnative_userpool_MOBILEHUB_1253509601",
+			"arn": "us-east-1_kdMWMZxSr",
+			"feature": "user-signin",
+			"attributes": {
+				"alias-attributes": "[\"email\",\"phone_number\"]",
+				"lastUpdateRequestID": "3307bcb5-2634-11e8-a5cf-83281952b9d0",
+				"mfa-configuration": "OPTIONAL",
+				"password-policy": "{\"minimumLength\":8,\"requireUppercase\":true,\"requireLowercase\":true,\"requireNumbers\":true,\"requireSymbols\":false}",
+				"region": "us-east-1",
+				"user-pools-client-id": "7c8viigudhbv5vce2nbsfab71i",
+				"user-pools-client-secret": "i262rto07l5r4kipt2rk7qjnd7okrnmlk1lpq8c8tnosinoarlq",
+				"user-pools-id": "us-east-1_kdMWMZxSr",
+				"user-pools-web-client-id": "1a2q7hja3aj7fpcopoiq8ofqf"
+			}
+		},
+		{
+			"type": "AWS::IAM::Role",
+			"name": "divotreactnative_auth_MOBILEHUB_1253509601",
+			"arn": "arn:aws:iam::467207127713:role/divotreactnative_auth_MOBILEHUB_1253509601",
+			"feature": "user-signin",
+			"attributes": {
+				"authType": "authenticated",
+				"lastUpdateRequestID": "dbcd4e16-2634-11e8-bb82-479c2c73f3db"
+			}
+		},
+		{
+			"type": "AWS::S3::Bucket",
+			"name": "divotreactnative-deployments-mobilehub-1253509601",
+			"arn": null,
+			"feature": "common",
+			"attributes": {
+				"region": "us-east-1",
+				"s3-bucket-console-url": "https://s3.console.aws.amazon.com/s3/buckets/divotreactnative-deployments-mobilehub-1253509601"
+			}
+		},
+		{
+			"type": "AWS::CloudFormation::Stack",
+			"name": "Development",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"primary": "true",
+				"region": "us-east-1",
+				"stateSummary": "NOT_YET_DEPLOYED"
+			}
+		}
+	]
+}

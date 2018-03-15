@@ -1,0 +1,19 @@
+{
+	"ProjectName": "DivotApp",
+	"ProjectPath": "/Users/Owner/DivotApp",
+	"InitializationTime": "",
+	"LastConfigurationTime": "2018-03-12-16-25-33",
+	"LastNPMInstallTime": "",
+	"FrontendLastBuildTime": "",
+	"LastPublishTime": "",
+	"BackendLastSyncTime": "2018-03-12-16-35-42",
+	"BackendLastBuildTime": "",
+	"BackendLastPushTime": "",
+	"BackendLastPushSuccessful": false,
+	"BackendProjectID": "3dc83b23-047e-47fa-9d9f-da2cb83d4435",
+	"BackendProjectName": "DivotReactNative",
+	"BackendProjectConsoleUrl": "https://console.aws.amazon.com/mobilehub/home#/3dc83b23-047e-47fa-9d9f-da2cb83d4435/build",
+	"BackendProjectCreationTime": "2018-03-12T19:59:03.622Z",
+	"BackendProjectLastUpdatedTime": "2018-03-12T20:35:11.010Z",
+	"Framework": "react-native"
+}
