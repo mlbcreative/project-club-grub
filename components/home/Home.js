@@ -1,16 +1,60 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground, Image, Text} from 'react-native';
+import { StyleSheet, View, ImageBackground, Image, TextInput, Text, Animated, Easing} from 'react-native';
 import Button from 'react-native-button';
-import {StackNavigator,} from 'react-navigation';
 
-import Amplify from 'aws-amplify';
-import { Authenitcator, ConfirmSignIn, ConfirmSignUp, ForgotPassword, SignIn, SignUp, VerifyContact, withAuthenticator } from 'aws-amplify-react-native';
-import aws_exports from '../../aws-exports';
+import Amplify, {Auth} from 'aws-amplify';
 
 
-Amplify.configure(aws_exports);
+class DivotLogoFadeIn extends React.Component {
+
+    
+  state = {
+    fadeAnim: new Animated.Value(0),  // Initial value for opacity: 0
+  }
+
+  componentDidMount() {
+    Animated.timing(this.state.fadeAnim,{toValue: 1,duration: 500,delay:250, easing: Easing.inOut(Easing.quad)}).start();                        
+  }
+
+  render() {
+    let { fadeAnim } = this.state;
+
+    return (
+      <Animated.View                 // Special animatable View
+        style={{
+          ...this.props.style,
+          opacity: fadeAnim,
+            transform: [
+              {
+                translateY: fadeAnim.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [50, 1],
+                })
+              },
+            ],// Bind opacity to animated value
+        }}
+      >
+        {this.props.children}
+      </Animated.View>
+    );
+  }
+}
+
 
 class HomeScreen extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            user : {
+                username : Auth.user.username,
+            },
+        }
+        
+        //Auth.signOut();
+        
+    }
+    
     
     static navigationOptions = {
         title: 'Welcome',
@@ -19,33 +63,29 @@ class HomeScreen extends React.Component {
     
     render() {
 
-    const { navigate } = this.props.navigation;
+    
 
         return (
             <View style={styles.main_container}>
 
             {/*Background Image*/}
             <View style={styles.bgWrapper}>
-            <ImageBackground style={styles.bgImage} source={require('../assets/images/divot-splash3x.png')}></ImageBackground>
+                <ImageBackground style={styles.bgImage} source={require('../assets/images/divot-splash3x.png')}></ImageBackground>
             </View>
             {/*.Background Image*/}
-
-            <Image source={require('../assets/images/divot_type_logo3x.png')} style={styles.logo} resizeMode={'cover'} />
             
-            <View style={{paddingTop:150}}>
+
+              {/*LOGO WRAPPER*/}
+            <DivotLogoFadeIn style={{flex:2,paddingTop:100,alignItems:'center'}}>
+                <Image source={require('../assets/images/divot_type_logo3x.png')} style={styles.logo} resizeMode={'cover'} />
+                <Text style={{color:'#8CC63F', fontSize:16, marginTop:10}}>Fill up at the turn</Text>
+            </DivotLogoFadeIn>
                 
-                <Button
-                    style={{fontSize: 20, color: 'white', fontWeight:'bold'}}
-                    styleDisabled={{color: 'red'}}
-                    containerStyle={styles.signUpBtn}
-                    onPress={() => navigate('SignIn')}>
-                    Sign In
-                </Button>
-                    
-                <Text style={styles.copyright}>© 2018 Divot Technologies</Text>
-                
+            <View style={{flex: 1, alignItems:'center',}}>
+                <Text>
+                    Welcome back <Text style={{fontWeight:'bold', fontSize:14}}>{this.state.user.username}</Text>
+                </Text>
             </View>
-            {/*.BUTTONS*/}
 
 
             </View>
@@ -55,16 +95,13 @@ class HomeScreen extends React.Component {
     }
 }
 
-{/*export default withAuthenticator(HomeScreen);*/}
+
 export default HomeScreen;
 
 
 const styles = StyleSheet.create({
   main_container: {
-    flex: 1,
-    backgroundColor: 'yellow',
-    alignItems: 'center',
-    justifyContent: 'space-around'
+    flex: 1
   },
     bgWrapper : {
         position: 'absolute',
@@ -78,7 +115,7 @@ const styles = StyleSheet.create({
     },
     logo : {
         width:301,
-        height:70
+        height:70,
     },
     signUpBtn : {
         backgroundColor: '#3BA4D5',
@@ -91,7 +128,8 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign : 'center',
         padding:10,
-    }
+    },
+    txtInput : {height: 40, borderColor: 'gray', borderWidth: 1, backgroundColor:"#fff", marginTop:400}
 });
 
 
